@@ -82,6 +82,7 @@ public class PhilosophyFindingService {
     }
 	
 	private Integer handleNewLink(String incomingUrl) throws IOException {
+		//Do some cache-keeping, update counter and try the next link in the chain
 		linksEncounteredOnThisTraversal.add(incomingUrl);
 		String nextLink = gotoNextLink(incomingUrl);
 		printLinkTitle(nextLink);
@@ -107,7 +108,7 @@ public class PhilosophyFindingService {
                 break;
             }
         }
-        //Get the portion of the link of containing "\wiki\<some_sort_of_string>" 
+        //Get the portion of the link of containing "/wiki/<some_sort_of_string>" 
         //and prepend the traditional Wiki starting URL pattern
         return wikiPrefixHttp + nextLink.substring(9, nextLink.indexOf("\"", 10));
     }
