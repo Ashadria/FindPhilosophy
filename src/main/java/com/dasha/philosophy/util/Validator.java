@@ -2,15 +2,14 @@ package com.dasha.philosophy.util;
 
 public class Validator {
 	private static String wikiPrefixHttp = "http://en.wikipedia.org/wiki/";
-	private static String wikiPrefixHttps = "https://en.wikipedia.org/wiki";
 
 	/**
-	 * Determines if the incoming URL is of proper Wiki format.
-	 * @param inputUrl
-	 * @return
+	 * Prepends the standard Wiki URL piece to the string provided in attemps to build a valid Wiki URL.
+	 * @param inputString
+	 * @return String
 	 */
-	public static boolean isValidWikiUrl(String inputUrl) {
-        return inputUrl.startsWith(wikiPrefixHttp) || inputUrl.startsWith(wikiPrefixHttps);
+	public static String buildWikiUrl(String inputString) {
+        return wikiPrefixHttp + inputString;
     }
 
 	/**

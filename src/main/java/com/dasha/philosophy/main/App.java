@@ -1,8 +1,6 @@
 package com.dasha.philosophy.main;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import com.dasha.philosophy.service.PhilosophyFindingService;
@@ -17,19 +15,16 @@ public class App {
 		Scanner argsScanner = new Scanner(System.in);
 
         while(true) {
-            System.out.println("Enter a valid Wiki URL or \"done\" to finish the program run:");
-            String inputUrl = argsScanner.next();
-            if (inputUrl.equalsIgnoreCase("done")) {
+            System.out.println("Enter a string you'd like to use in a Wiki URL or \"done\" to finish the program run:");
+            String inputString = argsScanner.next();
+            if (inputString.equalsIgnoreCase("done")) {
                 System.exit(0);
             }
-            // Check the validity of the input URL
-            if (!Validator.isValidWikiUrl(inputUrl)) {
-                System.out.println("Please provide a valid Wiki URL, example: https://en.wikipedia.org/wiki/Ethology");
-                continue;
-            }
-            // Proceed to the Philosophy page
+            //Attempt to build a valid Wiki URL
+            String startingUrl = Validator.buildWikiUrl(inputString);
             try {
-            	service.determineClicksToPhilosophyWikiPage(inputUrl);
+                //Proceed to the Philosophy page
+            	service.determineClicksToPhilosophyWikiPage(startingUrl);
             } catch (IOException e){
             	System.err.println("Error occured when trying to determine the number of clicks to the Philosophy Wiki Page.");
     			e.printStackTrace();
