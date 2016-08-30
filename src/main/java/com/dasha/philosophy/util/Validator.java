@@ -19,6 +19,6 @@ public class Validator {
 	 * @return
 	 */
     public static boolean isFirstValidLink(String link) {
-        return (link.contains("wiki") && (!link.contains("Greek") || !link.contains("Latin") || !link.contains("wiktionary")));
+        return (link.contains("wiki") && !link.contains("Greek") && !link.contains("Latin") && !link.contains("wiktionary"));
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.dasha.philosophy.model">
+
+    <class name="ClickData" table="philosophy">
+ 		<id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="startUrl" column="start_url"/>
+        <property name="numberOfClicksToPhilosophy" column="clicks"/>
+	</class>
+
+</hibernate-mapping>
