@@ -72,7 +72,7 @@ public class PhilosophyFindingServiceTest {
 	public void testAlreadyExistingUrl() {
 		System.out.println("Running testAlreadyExistingUrl");
 		try {			
-			givenAlreadyExistingUrl(testString1, testUrl1, numberOfClicks1);
+			this.givenAlreadyExistingUrl(testString1, testUrl1, numberOfClicks1);
 			
 			Integer clicksToPhilosophy = service.determineClicksToPhilosophyWikiPage(testUrl1);
 			assertEquals(numberOfClicks1, clicksToPhilosophy);
@@ -86,8 +86,8 @@ public class PhilosophyFindingServiceTest {
 	public void testMultipleNewUrls() {
 		System.out.println("Running testMultipleNewUrls");
 		try {	
-			givenNewUrl(testString1, testUrl1, numberOfClicks1);
-			givenNewUrl(testString2, testUrl2, numberOfClicks2);
+			this.givenNewUrl(testString1, testUrl1, numberOfClicks1);
+			this.givenNewUrl(testString2, testUrl2, numberOfClicks2);
 			
 			Integer clicksToPhilosophy = service.determineClicksToPhilosophyWikiPage(testUrl1);
 			assertEquals(numberOfClicks1, clicksToPhilosophy);
@@ -104,7 +104,7 @@ public class PhilosophyFindingServiceTest {
 	public void testLoopUrl() {
 		System.out.println("Running testLoopUrl");
 		try {			
-			givenNewUrl(loopTestString, loopUrl, null);
+			this.givenNewUrl(loopTestString, loopUrl, null);
 			
 			Integer clicksToPhilosophy = service.determineClicksToPhilosophyWikiPage(loopUrl);
 			assertEquals(null, clicksToPhilosophy);

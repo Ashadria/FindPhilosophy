@@ -28,7 +28,7 @@
         
         <property name="hbm2ddl.auto">validate</property>
  
-        <mapping resource="com/dasha/hibernate/model/Kitten.hbm.xml"/>
+        <mapping resource="com/dasha/philosophy/model/ClickData.hbm.xml"/>
  		
  		 
     </session-factory>
